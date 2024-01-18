@@ -1,4 +1,4 @@
-//Structure
+// JavaScrip Structure based on ERD design
 
 class Category {
   constructor(categoryID, name) {
@@ -43,7 +43,7 @@ class CategoryItemRelation {
   }
 }
 
-// Data creation
+// Sample data creation
 const electronicsCategory = new Category(1, 'Electronics');
 electronicsCategory.items.push(new Item(101, 'Smartphone', 'iPhone', 1));
 electronicsCategory.items.push(new Item(102, 'Laptop', 'iMac', 1));
