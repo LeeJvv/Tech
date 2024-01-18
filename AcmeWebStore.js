@@ -1,3 +1,4 @@
+//Structure based on ERD design
 class Category {
   constructor(categoryID, name) {
     this.categoryID = categoryID;
@@ -43,7 +44,7 @@ const categoryItemRelations = [
   { relationID: 3, categoryID: 2, itemID: 201 },
   { relationID: 4, categoryID: 2, itemID: 202 },
 ];
-
+//Function
 function computeVisibleItemsForCustomers(rootCategory, visibilityData, categoryItemRelations) {
   const visibleItemsByCustomer = {};
 
