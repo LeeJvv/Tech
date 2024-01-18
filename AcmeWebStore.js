@@ -1,4 +1,4 @@
-// JavaScrip Structure based on ERD design
+// JavaScript Structure based on ERD design
 
 class Category {
   constructor(categoryID, name) {
