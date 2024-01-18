@@ -1,4 +1,4 @@
-/Structure
+//Structure
 
 class Category {
   constructor(categoryID, name) {
