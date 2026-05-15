@@ -1,0 +1,63 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Local School WhatsApp Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:29c96e63b78edbb2d8673c2aac622c91652fc355@school-whatsapp-local
+DTSTAMP:20260514T080925Z
+SUMMARY:bring signed excursion forms by Friday.
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260516
+DESCRIPTION:From Teacher at 2026-05-14 14:10\n\nPlease bring signed excursion forms by Friday.
+LOCATION:School
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:bring signed excursion forms by Friday.
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:bring signed excursion forms by Friday.
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2d9e650902ca9a5fb3ba16d5a1df67605b5acdce@school-whatsapp-local
+DTSTAMP:20260514T080925Z
+SUMMARY:Reminder: Grade 4 maths test tomorrow at 08:30. revise fractions.
+DTSTART:20260515T083000
+DTEND:20260515T093000
+DESCRIPTION:From Teacher at 2026-05-14 07:31\n\nReminder: Grade 4 maths test tomorrow at 08:30. Please revise fractions.
+LOCATION:School
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Grade 4 maths test tomorrow at 08:30. revise fractions.
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Grade 4 maths test tomorrow at 08:30. revise fractions.
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20b6ac2af39b90a505948645cc372f8146fbb58d@school-whatsapp-local
+DTSTAMP:20260514T080925Z
+SUMMARY:Netball practice next Monday after school.
+DTSTART:20260518T143000
+DTEND:20260518T153000
+DESCRIPTION:From Coach at 2026-05-14 18:45\n\nNetball practice next Monday after school.
+LOCATION:School
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Netball practice next Monday after school.
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Netball practice next Monday after school.
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
