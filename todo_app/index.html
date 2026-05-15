@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick To-Do Notes</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="task-panel" aria-labelledby="app-title">
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Notes and tasks</p>
+            <h1 id="app-title">Quick To-Do</h1>
+          </div>
+          <button id="enable-reminders" class="icon-button" type="button" title="Enable reminders" aria-label="Enable reminders">
+            <span aria-hidden="true">!</span>
+          </button>
+        </header>
+
+        <form id="task-form" class="task-form" autocomplete="off">
+          <label class="task-title-field">
+            <span>Task</span>
+            <input id="task-title" name="title" type="text" placeholder="Add a note or to-do" required>
+          </label>
+          <label>
+            <span>Due date</span>
+            <input id="task-due" name="due" type="datetime-local" required>
+          </label>
+          <button type="submit">Add</button>
+        </form>
+
+        <div class="toolbar" aria-label="Task filters">
+          <button class="filter active" type="button" data-filter="open">Open</button>
+          <button class="filter" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="completed">Done</button>
+        </div>
+
+        <section class="summary" aria-live="polite">
+          <strong id="open-count">0 open</strong>
+          <span id="next-due">No due dates yet</span>
+        </section>
+
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+        <p id="empty-state" class="empty-state">Add your first task above. It stays saved in this browser.</p>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <li class="task-item">
+        <label class="complete-box">
+          <input class="task-complete" type="checkbox">
+          <span></span>
+        </label>
+        <div class="task-main">
+          <input class="task-name" type="text" aria-label="Task name">
+          <input class="task-date" type="datetime-local" aria-label="Due date">
+          <p class="task-status"></p>
+        </div>
+        <button class="delete-task" type="button" title="Delete task" aria-label="Delete task">x</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
