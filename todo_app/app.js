@@ -1,16 +1,22 @@
 const STORAGE_KEY = "quick-todo-notes-v1";
+const NOTES_STORAGE_KEY = "quick-sticky-notes-v1";
 const form = document.querySelector("#task-form");
 const titleInput = document.querySelector("#task-title");
 const dueInput = document.querySelector("#task-due");
 const list = document.querySelector("#task-list");
 const emptyState = document.querySelector("#empty-state");
+const addNoteButton = document.querySelector("#add-note");
+const notesBoard = document.querySelector("#notes-board");
+const notesEmptyState = document.querySelector("#notes-empty-state");
 const openCount = document.querySelector("#open-count");
 const nextDue = document.querySelector("#next-due");
 const enableReminders = document.querySelector("#enable-reminders");
 const filters = [...document.querySelectorAll(".filter")];
 const template = document.querySelector("#task-template");
+const noteTemplate = document.querySelector("#note-template");
 
 let tasks = loadTasks();
+let notes = loadNotes();
 let activeFilter = "open";
 
 setDefaultDueDate();
@@ -62,6 +68,20 @@ filters.forEach((button) => {
   });
 });
 
+addNoteButton.addEventListener("click", () => {
+  notes.unshift({
+    id: crypto.randomUUID(),
+    text: "",
+    color: "yellow",
+    createdAt: new Date().toISOString(),
+  });
+
+  saveNotes();
+  renderNotes();
+  const firstNote = notesBoard.querySelector(".note-text");
+  firstNote?.focus();
+});
+
 function render() {
   list.innerHTML = "";
   const visibleTasks = getVisibleTasks();
@@ -107,12 +127,52 @@ function render() {
   emptyState.hidden = visibleTasks.length > 0;
   updateSummary();
   updateReminderButton(window.Notification?.permission);
+  renderNotes();
+}
+
+function renderNotes() {
+  notesBoard.innerHTML = "";
+
+  notes.forEach((note) => {
+    const node = noteTemplate.content.firstElementChild.cloneNode(true);
+    const color = node.querySelector(".note-color");
+    const text = node.querySelector(".note-text");
+    const remove = node.querySelector(".delete-note");
+
+    node.classList.add(note.color || "yellow");
+    color.value = note.color || "yellow";
+    text.value = note.text || "";
+
+    color.addEventListener("change", () => {
+      updateNote(note.id, { color: color.value });
+    });
+
+    text.addEventListener("input", () => {
+      updateNote(note.id, { text: text.value }, false);
+    });
+
+    remove.addEventListener("click", () => {
+      notes = notes.filter((item) => item.id !== note.id);
+      saveNotes();
+      renderNotes();
+    });
+
+    notesBoard.append(node);
+  });
+
+  notesEmptyState.hidden = notes.length > 0;
 }
 
 function updateTask(id, changes, shouldRender = true) {
   tasks = tasks.map((task) => (task.id === id ? { ...task, ...changes } : task));
   saveTasks();
   if (shouldRender) render();
+}
+
+function updateNote(id, changes, shouldRender = true) {
+  notes = notes.map((note) => (note.id === id ? { ...note, ...changes } : note));
+  saveNotes();
+  if (shouldRender) renderNotes();
 }
 
 function getVisibleTasks() {
@@ -205,6 +265,19 @@ function loadTasks() {
 
 function saveTasks() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+}
+
+function loadNotes() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "[]");
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveNotes() {
+  localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
 }
 
 function updateReminderButton(permission) {

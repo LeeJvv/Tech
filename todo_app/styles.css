@@ -25,7 +25,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -267,6 +269,119 @@ input:focus {
   text-align: center;
 }
 
+.notes-section {
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  letter-spacing: 0;
+}
+
+.add-note-button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.add-note-button:hover {
+  background: var(--accent-strong);
+}
+
+.notes-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.sticky-note {
+  min-height: 190px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  border: 1px solid rgba(31, 41, 35, 0.12);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 10px 20px rgba(31, 41, 35, 0.1);
+}
+
+.sticky-note.yellow {
+  background: #fff4a8;
+}
+
+.sticky-note.green {
+  background: #c9f0cf;
+}
+
+.sticky-note.pink {
+  background: #ffd3df;
+}
+
+.sticky-note.blue {
+  background: #cfe7ff;
+}
+
+.note-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.note-color {
+  width: 110px;
+  min-height: 34px;
+  border: 1px solid rgba(31, 41, 35, 0.18);
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.delete-note {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(31, 41, 35, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.note-text {
+  width: 100%;
+  min-height: 126px;
+  resize: vertical;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.32);
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.note-text:focus,
+.note-color:focus {
+  outline: 3px solid rgba(31, 41, 35, 0.18);
+}
+
 @media (max-width: 720px) {
   .app-shell {
     padding: 12px;
@@ -282,8 +397,17 @@ input:focus {
     grid-template-columns: 1fr;
   }
 
+  .section-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   .task-item {
     grid-template-columns: 34px 1fr 40px;
     gap: 8px;
+  }
+
+  .notes-board {
+    grid-template-columns: 1fr;
   }
 }

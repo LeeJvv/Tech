@@ -44,6 +44,19 @@
 
         <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
         <p id="empty-state" class="empty-state">Add your first task above. It stays saved in this browser.</p>
+
+        <section class="notes-section" aria-labelledby="notes-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Sticky notes</p>
+              <h2 id="notes-title">Notes</h2>
+            </div>
+            <button id="add-note" class="add-note-button" type="button">Add note</button>
+          </div>
+
+          <div id="notes-board" class="notes-board" aria-label="Sticky notes"></div>
+          <p id="notes-empty-state" class="empty-state">Add a sticky note for quick thoughts, lists, or reminders.</p>
+        </section>
       </section>
     </main>
 
@@ -60,6 +73,21 @@
         </div>
         <button class="delete-task" type="button" title="Delete task" aria-label="Delete task">x</button>
       </li>
+    </template>
+
+    <template id="note-template">
+      <article class="sticky-note">
+        <div class="note-tools">
+          <select class="note-color" aria-label="Note color">
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="pink">Pink</option>
+            <option value="blue">Blue</option>
+          </select>
+          <button class="delete-note" type="button" title="Delete note" aria-label="Delete note">x</button>
+        </div>
+        <textarea class="note-text" aria-label="Note text" placeholder="Write a note..."></textarea>
+      </article>
     </template>
 
     <script src="app.js"></script>

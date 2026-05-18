@@ -70,9 +70,9 @@ calendar item.
 
 ## Quick To-Do Notes app
 
-A simple browser-based notes and to-do app is in `todo_app`. It saves tasks in
-your browser, lets you edit task names and due dates inline, and reminds you
-when an unfinished task becomes due.
+A simple browser-based notes and to-do app is in `todo_app`. It saves tasks and
+sticky notes in your browser, lets you edit task names and due dates inline, and
+reminds you when an unfinished task becomes due.
 
 ### Open it locally
 
@@ -90,7 +90,8 @@ http://127.0.0.1:8080
 
 Click the `!` button in the top-right corner to allow browser notifications.
 Keep the page open for live reminders. If the page was closed, overdue tasks are
-still highlighted the next time you open it.
+still highlighted the next time you open it. Use `Add note` to create sticky
+notes for quick thoughts, lists, or reminders.
 
 ### Publish it with GitHub Pages
 
